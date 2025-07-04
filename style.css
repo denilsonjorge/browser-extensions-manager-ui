@@ -1,0 +1,217 @@
+@font-face {
+    font-family: "NotoSans";
+    src: url("assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf");
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "NotoSans",arial;
+}
+:root{
+    /* Neutral */
+    
+    --Neutral-900: #09153e;
+    /* dark */
+    --Neutral-800: #212636;
+    --Neutral-700: #2f364b; 
+    --Neutral-600: #545969;
+    --Neutral-300: #c7c7c7;
+    --Neutral-200: #d6e2f5;
+    --Neutral-100: #ededed;
+    --Neutral-0: #fbfdfe;
+    
+    /* Red */
+    
+    --Red-400: #f25c54;
+    --Red-500: #de473f;
+    --Red-700: #c7221a;
+    
+    /* Gradient */
+    
+    
+    --Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background: var(--Gradient);
+}
+body.active{
+    --Gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --Neutral-800: #fbfdfe;
+    --Neutral-700: #fbfdfe;
+    --Neutral-100: #09153e;
+    --Neutral-600: #c7c7c7;
+}
+.container{
+    max-width: 90%;
+    margin: 0 auto;
+}   
+header{
+    margin: 20px 0 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--Neutral-800);   
+    border-radius: 20px;
+    position: relative;
+    z-index: 999;
+
+}
+header .mode{
+    padding: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--Neutral-700);
+    display: grid;
+    place-items: center;
+    border: none; 
+    cursor: pointer;
+}
+header .mode:hover{
+    background: var(--Neutral-600);
+}
+header .mode:focus{
+    outline: 2px solid var(--Red-400);
+}
+header .mode span{
+    width: 20px;
+    height: 20px;
+    background: url("assets/images/icon-sun.svg") no-repeat center center;
+    background-size: contain;
+}
+/* modo dark */
+header .mode.light span{
+    background: url("assets/images/icon-moon.svg") no-repeat center center;
+    background-size: contain;
+}
+
+main{
+    
+}
+.filter{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+   
+}
+.filter h2{
+    color: var(--Neutral-100);
+}
+.filter .btn button{
+    padding: 10px 15px;
+    border-radius:20px;
+    background: var(--Neutral-700);
+    border: none;
+    color: var(--Neutral-100);
+    cursor: pointer;
+}
+.filter .btn button:hover{
+    background: var(--Neutral-600);
+}
+.filter .btn button:focus{
+    outline: 2px solid var(--Red-400);
+}
+.filter .btn button.active{
+    background: var(--Red-400);
+    color: var(--Neutral-900);
+    font-weight: 500;
+}
+.extensions{
+    margin: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap:5px;
+}
+.extension{
+    flex: 1 1 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--Neutral-800);
+    border: 1px solid var(--Neutral-800);
+    max-width: 360px;
+    min-width: 200px;
+}
+.extension .content{
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    width: 100%;
+}
+.extension .content h3{
+    color: var(--Neutral-100);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.extension .content p{
+    color: var(--Neutral-300);
+    font-size: 1em;
+}
+.extension .btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.extension .btn .remove{
+    cursor: pointer;
+    padding: 5px 10px;   
+    border-radius: 20px;
+    border: 1px solid var(--Neutral-600);
+    background: transparent;
+    color: var(--Neutral-200);
+}
+.extension .btn .interruptor{
+    cursor: pointer;
+    transition: 1s ease all;
+    width: 40px;
+    height: 20px;
+    background: var(--Neutral-600);
+    border-radius: 20px;
+    position: relative;
+}
+.extension .btn .interruptor::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--Neutral-100);
+    border-radius: 50%;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.extension .btn .interruptor.on{
+    background: var(--Red-400);
+}
+.extension .btn .interruptor.on::after{
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+@media (max-width:400px) {
+    .filter{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .filter h2{
+        font-size: 2em;
+    }
+    .filter .btn{
+        display: flex;
+        gap: 10px;
+    }
+    .filter .btn button{
+        font-size: 1.2em;
+    }
+}
